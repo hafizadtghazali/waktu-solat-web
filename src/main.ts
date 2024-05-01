@@ -1,5 +1,5 @@
 import App from './App.svelte';
-import '@fontsource-variable/inter';
+import '@fontsource/inter/400.css';
 import './styles/_base.scss';
 import { registerSW } from 'virtual:pwa-register';
 
