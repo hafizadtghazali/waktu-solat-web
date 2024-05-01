@@ -5,7 +5,7 @@
 </script>
 
 <div id="header-box">
-  <div id="header-text">Waqt</div>
+  <div id="header-text">Waktu Solat</div>
 
   <button title="Settings" on:click={onClick}>
     <div class="icon">
