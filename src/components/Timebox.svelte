@@ -43,7 +43,6 @@
   </div>
   <div class="waqt-time">
     {#if prayerTime != null && !isNaN(prayerTime.getTime()) && $settings.timeFormat != null}
-      <div>{format(prayerTime, 'dd/MM/yyyy')}</div>
       <div>{format(prayerTime, $settings.timeFormat)}</div>
     {:else}
       ...
