@@ -6,6 +6,26 @@
   export let prayerTime: Date;
   export let timeToNextPrayer: string;
   export let isNextPrayer: boolean;
+
+  // Function to translate prayer names to Malay
+  function translatePrayerName(prayer: string): string {
+    switch (prayer) {
+      case 'Fajr':
+        return 'Subuh';
+      case 'Sunrise':
+        return 'Terbit Matahari';
+      case 'Dhuhr':
+        return 'Zuhr';
+      case 'Asr':
+        return 'Asar';
+      case 'Maghrib':
+        return 'Maghrib';
+      case 'Isha':
+        return 'Isyak';
+      default:
+        return prayer; // Return the original name if not found
+    }
+  }
 </script>
 
 <div
@@ -14,19 +34,23 @@
   class:muted={!isNextPrayer}
 >
   <div class="waqt-name">
-    {prayerName}
     {#if isNextPrayer}
+      {translatePrayerName(prayerName)}
       <span class="next-waqt-time">{timeToNextPrayer ?? ''}</span>
+    {:else}
+      {translatePrayerName(prayerName)}
     {/if}
   </div>
   <div class="waqt-time">
     {#if prayerTime != null && !isNaN(prayerTime.getTime()) && $settings.timeFormat != null}
-      {format(prayerTime, $settings.timeFormat)}
+      <div>{format(prayerTime, 'dd/MM/yyyy')}</div>
+      <div>{format(prayerTime, $settings.timeFormat)}</div>
     {:else}
       ...
     {/if}
   </div>
 </div>
+
 
 <style lang="scss">
   @import '../styles/variables';
