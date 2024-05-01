@@ -28,14 +28,14 @@
   }
   function translatetimeToNextPrayer(nextprayer: string): string {
     switch (nextprayer) {
-      case 'hour':
+      case 'Hour':
         return 'jam';
-      case 'hours':
+      case 'Hours':
         return 'jam';
-      case 'in':
+      case 'In':
         return 'dalam';
       default:
-        return nextprayer; // Return the original name if not found
+        return nextprayer;
     }
   }
 </script>
