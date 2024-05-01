@@ -3,7 +3,6 @@
   import FaSave from 'svelte-icons/fa/FaSave.svelte';
   import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
   import { settings } from '../store/store';
-  import image from '../assets/kofi3.png';
   import { CalculationMethod } from 'adhan';
   import AutoComplete from 'simple-svelte-autocomplete';
   import { onMount } from 'svelte';
@@ -129,31 +128,6 @@
         <div id="local-time">Local date: {localTime.toLocaleDateString()}</div>
         <div id="timezone">Timezone: {timeZone}</div>
         <div>Date & time fetched from system settings</div>
-      </div>
-      <div id="about-info">
-        An app to display current prayer times for the selected location.
-        <br />Made with ♥️ by Tamim Arafat.
-        <br />
-        <a
-          href="http://github.com/arafatamim/waqt-web"
-          target="_blank"
-          class="about-link"
-        >
-          <div class="icon">
-            <FaGithub />
-          </div>
-          <span>&nbsp;Source on GitHub</span>
-        </a>
-        <br />
-        <br />
-        <a href="https://ko-fi.com/Q5Q1TLM1" target="_blank">
-          <img
-            height="36"
-            style="border:0px;height:36px;"
-            src={image}
-            alt="Buy Me a Coffee at ko-fi.com"
-          />
-        </a>
       </div>
     </div>
   </div>
