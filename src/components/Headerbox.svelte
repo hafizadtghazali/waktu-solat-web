@@ -2,6 +2,8 @@
   import FaCog from 'svelte-icons/fa/FaCog.svelte';
 
   export let onClick: () => void;
+  export let localTime: Date;
+  export let timeZone: string;
 </script>
 
 <div id="header-box">
