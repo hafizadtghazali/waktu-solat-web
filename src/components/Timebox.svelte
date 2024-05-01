@@ -1,11 +1,14 @@
 <script lang="ts">
   import { format } from 'date-fns';
   import { settings } from '../store/store';
+  import { locale } from '../i18n';
 
   export let prayerName: string;
   export let prayerTime: Date;
   export let timeToNextPrayer: string;
   export let isNextPrayer: boolean;
+
+  const t = locale("ms");
 
   // Function to translate prayer names to Malay
   function translatePrayerName(prayer: string): string {
@@ -26,18 +29,6 @@
         return prayer; // Return the original name if not found
     }
   }
-  function translatetimeToNextPrayer(nextprayer: string): string {
-    switch (nextprayer) {
-      case 'hour':
-        return 'jam';
-      case 'hours':
-        return 'jam';
-      case 'in':
-        return 'dalam';
-      default:
-        return nextprayer;
-    }
-  }
 </script>
 
 <div
@@ -48,7 +39,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{translatetimeToNextPrayer(timeToNextPrayer ?? '')}</span>
+      <span class="next-waqt-time">{t(timeToNextPrayer ?? '')}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
