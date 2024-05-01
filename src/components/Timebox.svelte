@@ -1,7 +1,7 @@
 <script lang="ts">
   import { format } from 'date-fns';
   import { settings } from '../store/store';
-  import { locale } from '../i18n';
+  import { setLocale, locale } from 'svelte-i18n';
 
   export let prayerName: string;
   export let prayerTime: Date;
