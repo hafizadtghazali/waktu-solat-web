@@ -15,7 +15,7 @@
       case 'Sunrise':
         return 'Terbit Matahari';
       case 'Dhuhr':
-        return 'Zuhr';
+        return 'Zohor';
       case 'Asr':
         return 'Asar';
       case 'Maghrib':
