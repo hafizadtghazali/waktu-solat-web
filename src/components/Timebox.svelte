@@ -28,8 +28,6 @@
 
   function translateTimeUnits(text) {
     switch (text) {
-      case 'in':
-        return 'lagi';
       case 'hours':
         return 'jam';
       case 'hour':
@@ -43,17 +41,11 @@
     }
   }
 
-  // Example value of timeToNextPrayer for demonstration
   let timeToNextPrayer = "in 5 hours";
-
-  // Split the string into parts
   let [prefix, time, unit] = timeToNextPrayer.split(" ");
-
-  // Translate the time unit if it matches
   unit = translateTimeUnits(unit);
-
-  // Concatenate the translated parts back
-  timeToNextPrayer = `${time} ${unit}`;
+  prefix = "lagi";
+  timeToNextPrayer = `${prefix} ${time} ${unit}`;
 
 </script>
 
