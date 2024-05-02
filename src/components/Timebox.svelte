@@ -134,6 +134,3 @@
   }
 </style>
 
-<script>
-  console.log("timeToNextPrayer:", timeToNextPrayer);
-</script>
