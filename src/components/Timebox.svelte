@@ -41,7 +41,7 @@
   }
 
   // Exported variable from another component
-  export let timeToNextPrayer;
+  export let timeToNextPrayer: string;
 
   // Translated version of timeToNextPrayer
   let translatedTimeToNextPrayer = "";
