@@ -26,9 +26,6 @@
         return prayer;
     }
   }
-  function translateTimeUnits(unit) {
-    return t(`timeUnit.${unit}`);
-  }
 
 </script>
 
@@ -40,7 +37,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{timeToNextPrayer.split(' ').map(translateTimeUnits).join(' ')}</span>
+      <span class="next-waqt-time">{t(timeToNextPrayer)}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
