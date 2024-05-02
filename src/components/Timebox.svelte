@@ -7,6 +7,24 @@
   export let timeToNextPrayer: string;
   export let isNextPrayer: boolean;
 
+  function translatePrayerName(prayer: string): string {
+    switch (prayer) {
+      case 'Fajr':
+        return 'Subuh';
+      case 'Sunrise':
+        return 'Terbit Matahari';
+      case 'Dhuhr':
+        return 'Zuhr';
+      case 'Asr':
+        return 'Asar';
+      case 'Maghrib':
+        return 'Maghrib';
+      case 'Isha':
+        return 'Isyak';
+      default:
+        return prayer;
+    }
+
   function translateTimeUnits(text) {
     switch (text) {
       case 'hours':
