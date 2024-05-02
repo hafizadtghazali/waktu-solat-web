@@ -41,12 +41,12 @@
     }
   }
 
-  export let timeToNextPrayer: string;
+  export let timeToNextPrayer;
   let [prefix, ...rest] = timeToNextPrayer.split(" ");
   prefix = "lagi";
   let [timeValue, unit] = rest.join(" ").split(" ");
   unit = translateTimeUnits(unit);
-  let translatedTimeToNextPrayer = `${prefix} ${timeValue} ${unit}`;
+  let translatedTimeToNextPrayer = '${prefix} ${timeValue} ${unit}';
 
 </script>
 
