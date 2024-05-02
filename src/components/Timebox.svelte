@@ -26,6 +26,7 @@
     }
   }
   console.log("timeToNextPrayer:", timeToNextPrayer);
+  console.log("prayerName:", prayerName);
 </script>
 
 <div
