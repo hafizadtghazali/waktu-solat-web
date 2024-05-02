@@ -4,7 +4,6 @@
 
   export let prayerName: string;
   export let prayerTime: Date;
-  export let timeToNextPrayer: string;
   export let isNextPrayer: boolean;
 
   // Function to translate prayer names to Malay
