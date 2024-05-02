@@ -41,12 +41,23 @@
     }
   }
 
+  // Import the exported timeToNextPrayer string from another component
   export let timeToNextPrayer;
+
+  // Split the string into parts
   let [prefix, ...rest] = timeToNextPrayer.split(" ");
-  prefix = "lagi";
+
+  // Translate the preposition "in"
+  prefix = "dalam";
+
+  // Extract the time part and its value
   let [timeValue, unit] = rest.join(" ").split(" ");
+
+  // Translate the time unit if it matches
   unit = translateTimeUnits(unit);
-  let translatedTimeToNextPrayer = '${prefix} ${timeValue} ${unit}';
+
+  // Concatenate the translated parts back
+  let translatedTimeToNextPrayer = `${prefix} ${timeValue} ${unit}`;
 
 </script>
 
