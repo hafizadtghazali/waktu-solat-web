@@ -25,9 +25,6 @@
         return prayer; // Return the original name if not found
     }
   }
-
- 
-  console.log("timeToNextPrayer:", timeToNextPrayer);
 </script>
 
 <div
@@ -136,3 +133,7 @@
     filter: grayscale(80%) opacity(50%);
   }
 </style>
+
+<script>
+  console.log("timeToNextPrayer:", timeToNextPrayer);
+</script>
