@@ -1,6 +1,11 @@
 <script lang="ts">
   import { format } from 'date-fns';  
   import { settings } from '../store/store';
+  import { t } from 'svelte-i18n';
+
+  // Exported variables
+  export let timeToNextPrayer;
+  export let isNextPrayer;
 
   export let prayerName: string;
   export let prayerTime: Date;
@@ -25,6 +30,9 @@
         return prayer;
     }
   }
+  function translateTimeUnits(unit) {
+    return t(`timeUnit.${unit}`);
+  }
 
 </script>
 
@@ -36,7 +44,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{timeToNextPrayer}</span>
+      <span class="next-waqt-time">{timeToNextPrayer.split(' ').map(translateTimeUnits).join(' ')}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
