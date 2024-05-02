@@ -14,7 +14,7 @@
       case 'Sunrise':
         return 'Terbit Matahari';
       case 'Dhuhr':
-        return 'Zuhr';
+        return 'Zohor';
       case 'Asr':
         return 'Asar';
       case 'Maghrib':
@@ -55,13 +55,12 @@
     let [timeValue, unit] = rest.join(" ").split(" ");
     let translatedUnit = translateTimeUnits(unit);
     translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
-
-    console.log("Translated Time:", translatedTimeToNextPrayer);
-    console.log("Translated Time:", timeToNextPrayer);
   }
 
   // Update the translated string whenever isNextPrayer or timeToNextPrayer changes
   $: updateTranslatedTime();
+  console.log("Translated Time:", translatedTimeToNextPrayer);
+  console.log("Time:", timeToNextPrayer);
 
 </script>
 
