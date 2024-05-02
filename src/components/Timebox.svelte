@@ -26,26 +26,22 @@
     }
   }
 
-  function translateTimeUnits(text) {
-    switch (text) {
-      case 'hours':
-        return 'jam';
-      case 'hour':
-        return 'jam';
-      case 'minutes':
-        return 'minit';
-      case 'minute':
-        return 'minit';
-      default:
-        return text;
-    }
-  }
+  export let timeToNextPrayer;
 
-  let timeToNextPrayer = "in 5 hours";
+  // Split the string into parts
   let [prefix, ...rest] = timeToNextPrayer.split(" ");
+
+  // Translate the preposition "in"
   prefix = "lagi";
-  let unit = translateTimeUnits(rest.pop());
-  timeToNextPrayer = `${prefix} ${rest.join(" ")} ${unit}`;
+
+  // Extract the time part and its value
+  let [timeValue, unit] = rest.join(" ").split(" ");
+
+  // Translate the time unit if it matches
+  unit = translateTimeUnits(unit);
+
+  // Concatenate the translated parts back
+  let translatedTimeToNextPrayer = `${prefix} ${timeValue} ${unit}`;
 
 </script>
 
@@ -57,7 +53,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{timeToNextPrayer}</span>
+      <span class="next-waqt-time">{translatedTimeToNextPrayer}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
