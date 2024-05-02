@@ -53,7 +53,7 @@
   unit = translateTimeUnits(unit);
 
   // Concatenate the translated parts back
-  timeToNextPrayer = `${prefix} ${time} ${unit}`;
+  timeToNextPrayer = `${time} ${unit}`;
 
 </script>
 
