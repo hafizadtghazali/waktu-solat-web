@@ -59,9 +59,6 @@
 
   // Update the translated string whenever timeToNextPrayer changes
   $: updateTranslatedTime();
-
-  // Update the translated string whenever timeToNextPrayer changes
-  $: updateTranslatedTime();
 </script>
 
 <div
