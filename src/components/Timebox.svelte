@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { format } from 'date-fns';
+  import { format } from 'date-fns';  
+  import { settings } from '../store/store';
 
   export let prayerName: string;
   export let prayerTime: Date;
