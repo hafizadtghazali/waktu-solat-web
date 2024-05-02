@@ -46,15 +46,19 @@
   // Translated version of timeToNextPrayer
   let translatedTimeToNextPrayer = "";
 
-  // Function to update the translated string
   function updateTranslatedTime() {
+    console.log("timeToNextPrayer:", timeToNextPrayer); // Debugging
     if (!timeToNextPrayer) return; // Ensure timeToNextPrayer is defined
     let [prefix, ...rest] = timeToNextPrayer.split(" ");
-    prefix = "lagi";
+    prefix = "dalam";
     let [timeValue, unit] = rest.join(" ").split(" ");
     let translatedUnit = translateTimeUnits(unit);
     translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
+    console.log("translatedTimeToNextPrayer:", translatedTimeToNextPrayer); // Debugging
   }
+
+  // Update the translated string whenever timeToNextPrayer changes
+  $: updateTranslatedTime();
 
   // Update the translated string whenever timeToNextPrayer changes
   $: updateTranslatedTime();
