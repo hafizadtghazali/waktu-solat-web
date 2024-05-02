@@ -24,6 +24,7 @@
       default:
         return prayer;
     }
+  }
 
   function translateTimeUnits(text) {
     switch (text) {
