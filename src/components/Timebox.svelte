@@ -2,31 +2,49 @@
   import { format } from 'date-fns';  
   import { settings } from '../store/store';
 
-  export let prayerName: string;
-  export let prayerTime: Date;
-  export let timeToNextPrayer: string;
-  export let isNextPrayer: boolean;
-
-  function translatePrayerName(prayer: string): string {
-    switch (prayer) {
-      case 'Fajr':
-        return 'Subuh';
-      case 'Sunrise':
-        return 'Terbit Matahari';
-      case 'Dhuhr':
-        return 'Zohor';
-      case 'Asr':
-        return 'Asar';
-      case 'Maghrib':
-        return 'Maghrib';
-      case 'Isha':
-        return 'Isyak';
+  function translateTimeUnits(text) {
+    switch (text) {
+      case 'hours':
+        return 'jam';
+      case 'hour':
+        return 'jam';
+      case 'minutes':
+        return 'minit';
+      case 'minute':
+        return 'minit';
       default:
-        return prayer; // Return the original name if not found
+        return text;
     }
   }
-  console.log("timeToNextPrayer:", timeToNextPrayer);
-  console.log("prayerName:", prayerName);
+
+  // Exported variables
+  export let prayerName;
+  export let prayerTime;
+  export let timeToNextPrayer;
+  export let isNextPrayer;
+
+  // Translated version of timeToNextPrayer
+  let translatedTimeToNextPrayer = "";
+
+  // Function to update the translated string
+  function updateTranslatedTime() {
+    if (!isNextPrayer || !timeToNextPrayer) {
+      translatedTimeToNextPrayer = ""; // Reset translatedTimeToNextPrayer if isNextPrayer is false or timeToNextPrayer is undefined
+      return;
+    }
+    let [prefix, ...rest] = timeToNextPrayer.split(" ");
+    prefix = "dalam";
+    let [timeValue, unit] = rest.join(" ").split(" ");
+    let translatedUnit = translateTimeUnits(unit);
+    translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
+
+    // Log translatedTimeToNextPrayer when isNextPrayer is true
+    console.log("Translated Time:", translatedTimeToNextPrayer);
+  }
+
+  // Update the translated string whenever isNextPrayer or timeToNextPrayer changes
+  $: updateTranslatedTime();
+
 </script>
 
 <div
