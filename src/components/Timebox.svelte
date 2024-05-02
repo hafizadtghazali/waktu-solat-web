@@ -25,6 +25,23 @@
         return prayer; // Return the original name if not found
     }
   }
+
+  function translatetimeToNextPrayer(nextprayer: string): string {
+    switch (nextprayer) {
+      case 'in':
+        return 'dalam';
+      case 'minutes':
+        return 'minit';
+      case 'minute':
+        return 'minit';
+      case 'hours':
+        return 'jam';
+      case 'hour':
+        return 'jam';
+      default:
+        return nextprayer; 
+    }
+  }
 </script>
 
 <div
@@ -35,7 +52,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{timeToNextPrayer ?? ''}</span>
+      <span class="next-waqt-time">{translatetimeToNextPrayer(timeToNextPrayer ?? '')}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
