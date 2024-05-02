@@ -43,9 +43,6 @@
         return nextprayer; 
     }
   }
-  onMount(() => {
-    console.log("timeToNextPrayer:", timeToNextPrayer);
-  });
 </script>
 
 <div
