@@ -42,10 +42,10 @@
   }
 
   let timeToNextPrayer = "in 5 hours";
-  let [prefix, time, unit] = timeToNextPrayer.split(" ");
-  unit = translateTimeUnits(unit);
+  let [prefix, ...rest] = timeToNextPrayer.split(" ");
   prefix = "lagi";
-  timeToNextPrayer = `${prefix} ${time} ${unit}`;
+  let unit = translateTimeUnits(rest.pop());
+  timeToNextPrayer = `${prefix} ${rest.join(" ")} ${unit}`;
 
 </script>
 
