@@ -26,6 +26,21 @@
     }
   }
 
+  function translateTimeUnits(text) {
+    switch (text) {
+      case 'hours':
+        return 'jam';
+      case 'hour':
+        return 'jam';
+      case 'minutes':
+        return 'minit';
+      case 'minute':
+        return 'minit';
+      default:
+        return text;
+    }
+  }
+
   export let timeToNextPrayer: string;
   let [prefix, ...rest] = timeToNextPrayer.split(" ");
   prefix = "lagi";
