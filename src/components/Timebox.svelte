@@ -2,6 +2,11 @@
   import { format } from 'date-fns';  
   import { settings } from '../store/store';
 
+  export let prayerName: string;
+  export let prayerTime: Date;
+  export let timeToNextPrayer: string;
+  export let isNextPrayer: boolean;
+
   function translateTimeUnits(text) {
     switch (text) {
       case 'hours':
@@ -16,12 +21,6 @@
         return text;
     }
   }
-
-  // Exported variables
-  export let prayerName;
-  export let prayerTime;
-  export let timeToNextPrayer;
-  export let isNextPrayer;
 
   // Translated version of timeToNextPrayer
   let translatedTimeToNextPrayer = "";
