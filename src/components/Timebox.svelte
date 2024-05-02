@@ -27,20 +27,10 @@
   }
 
   export let timeToNextPrayer;
-
-  // Split the string into parts
   let [prefix, ...rest] = timeToNextPrayer.split(" ");
-
-  // Translate the preposition "in"
   prefix = "lagi";
-
-  // Extract the time part and its value
   let [timeValue, unit] = rest.join(" ").split(" ");
-
-  // Translate the time unit if it matches
   unit = translateTimeUnits(unit);
-
-  // Concatenate the translated parts back
   let translatedTimeToNextPrayer = `${prefix} ${timeValue} ${unit}`;
 
 </script>
