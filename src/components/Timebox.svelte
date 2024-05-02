@@ -4,6 +4,7 @@
 
   export let prayerName: string;
   export let prayerTime: Date;
+  export let timeToNextPrayer: string;
   export let isNextPrayer: boolean;
 
   function translatePrayerName(prayer: string): string {
@@ -41,7 +42,6 @@
   }
 
   // Exported variable from another component
-  export let timeToNextPrayer;
   console.log("timeToNextPrayer:", timeToNextPrayer);
   // Translated version of timeToNextPrayer
   let translatedTimeToNextPrayer = "";
