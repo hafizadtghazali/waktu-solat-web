@@ -50,7 +50,7 @@
   function updateTranslatedTime() {
     if (!timeToNextPrayer) return; // Ensure timeToNextPrayer is defined
     let [prefix, ...rest] = timeToNextPrayer.split(" ");
-    prefix = "dalam";
+    prefix = "lagi";
     let [timeValue, unit] = rest.join(" ").split(" ");
     let translatedUnit = translateTimeUnits(unit);
     translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
