@@ -9,6 +9,14 @@
   import Timebox from './components/Timebox.svelte';
   import SettingsDialog from './components/Settings.svelte';
   import { Ombro } from 'ombro';
+  import { i18nInit } from 'svelte-i18n';
+  import ms from './locale/ms.json';
+
+  i18nInit({
+    fallbackLocale: 'ms', // Set Malay as the default language
+    initialLocale: 'ms', // Set Malay as the initial language
+    translations: { ms }, // Provide Malay translation file
+  });
 
   type Prayer = ValueOf<typeof Prayer>;
 
