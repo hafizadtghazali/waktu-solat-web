@@ -6,7 +6,6 @@
   export let prayerTime: Date;
   export let isNextPrayer: boolean;
 
-  // Function to translate prayer names to Malay
   function translatePrayerName(prayer: string): string {
     switch (prayer) {
       case 'Fajr':
@@ -26,9 +25,6 @@
     }
   }
 
-  import { onMount } from 'svelte';
-  
-  // Example translation function for translating time units
   function translateTimeUnits(text) {
     switch (text) {
       case 'hours':
@@ -48,10 +44,11 @@
   export let timeToNextPrayer;
 
   // Translated version of timeToNextPrayer
-  let translatedTimeToNextPrayer;
+  let translatedTimeToNextPrayer = "";
 
   // Function to update the translated string
   function updateTranslatedTime() {
+    if (!timeToNextPrayer) return; // Ensure timeToNextPrayer is defined
     let [prefix, ...rest] = timeToNextPrayer.split(" ");
     prefix = "dalam";
     let [timeValue, unit] = rest.join(" ").split(" ");
@@ -59,14 +56,8 @@
     translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
   }
 
-  // Call the function to initially translate the string
-  onMount(updateTranslatedTime);
-
   // Update the translated string whenever timeToNextPrayer changes
-  $: {
-    updateTranslatedTime();
-  }
-
+  $: updateTranslatedTime();
 </script>
 
 <div
