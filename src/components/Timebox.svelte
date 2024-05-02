@@ -1,15 +1,12 @@
 <script lang="ts">
   import { format } from 'date-fns';
   import { settings } from '../store/store';
-  import { setLocale, locale } from 'svelte-i18n';
-  import ms from '../locales/ms.json';
 
   export let prayerName: string;
   export let prayerTime: Date;
   export let timeToNextPrayer: string;
   export let isNextPrayer: boolean;
 
-  const t = locale("ms");
 
   // Function to translate prayer names to Malay
   function translatePrayerName(prayer: string): string {
@@ -40,7 +37,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{t(timeToNextPrayer ?? '')}</span>
+      <span class="next-waqt-time">{timeToNextPrayer ?? ''}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
