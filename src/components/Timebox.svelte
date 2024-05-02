@@ -26,41 +26,8 @@
     }
   }
 
-  function translateTimeUnits(text) {
-    switch (text) {
-      case 'hours':
-        return 'jam';
-      case 'hour':
-        return 'jam';
-      case 'minutes':
-        return 'minit';
-      case 'minute':
-        return 'minit';
-      default:
-        return text;
-    }
-  }
-
-  // Exported variable from another component
+ 
   console.log("timeToNextPrayer:", timeToNextPrayer);
-  // Translated version of timeToNextPrayer
-  let translatedTimeToNextPrayer = "";
-  
-  // Function to update the translated string
-  function updateTranslatedTime() {
-    if (!timeToNextPrayer) {
-      translatedTimeToNextPrayer = ""; // Set to empty string if undefined
-      return;
-    }
-    let [prefix, ...rest] = timeToNextPrayer.split(" ");
-    prefix = "dalam";
-    let [timeValue, unit] = rest.join(" ").split(" ");
-    let translatedUnit = translateTimeUnits(unit);
-    translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
-  }
-
-  // Update the translated string whenever timeToNextPrayer changes
-  $: updateTranslatedTime();
 </script>
 
 <div
@@ -71,7 +38,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{translatedTimeToNextPrayer}</span>
+      <span class="next-waqt-time">{timeToNextPrayer}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
