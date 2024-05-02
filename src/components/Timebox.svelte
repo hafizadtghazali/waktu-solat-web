@@ -29,7 +29,7 @@
 
   function translatetimeToNextPrayer(nextprayer: string): string {
     switch (nextprayer) {
-      case 'in':
+      case 'IN':
         return 'dalam';
       case 'minutes':
         return 'minit';
