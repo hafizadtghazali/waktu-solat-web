@@ -26,7 +26,7 @@
     }
   }
 
-  export let timeToNextPrayer;
+  export let timeToNextPrayer: string;
   let [prefix, ...rest] = timeToNextPrayer.split(" ");
   prefix = "lagi";
   let [timeValue, unit] = rest.join(" ").split(" ");
