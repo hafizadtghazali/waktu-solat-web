@@ -2,7 +2,7 @@
   import { format } from 'date-fns';
   import { settings } from '../store/store';
   import { setLocale, locale } from 'svelte-i18n';
-  import ms from './locales/ms.json';
+  import ms from '././locales/ms.json';
 
   export let prayerName: string;
   export let prayerTime: Date;
