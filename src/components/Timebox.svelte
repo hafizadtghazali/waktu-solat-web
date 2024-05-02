@@ -27,6 +27,35 @@
     }
   }
 
+  function translateTimeUnits(text) {
+    switch (text) {
+      case 'in':
+        return 'lagi';
+      case 'hours':
+        return 'jam';
+      case 'hour':
+        return 'jam';
+      case 'minutes':
+        return 'minit';
+      case 'minute':
+        return 'minit';
+      default:
+        return text;
+    }
+  }
+
+  // Example value of timeToNextPrayer for demonstration
+  let timeToNextPrayer = "in 5 hours";
+
+  // Split the string into parts
+  let [prefix, time, unit] = timeToNextPrayer.split(" ");
+
+  // Translate the time unit if it matches
+  unit = translateTimeUnits(unit);
+
+  // Concatenate the translated parts back
+  timeToNextPrayer = `${prefix} ${time} ${unit}`;
+
 </script>
 
 <div
