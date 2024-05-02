@@ -3,10 +3,6 @@
   import { settings } from '../store/store';
   import { t } from 'svelte-i18n';
 
-  // Exported variables
-  export let timeToNextPrayer;
-  export let isNextPrayer;
-
   export let prayerName: string;
   export let prayerTime: Date;
   export let timeToNextPrayer: string;
