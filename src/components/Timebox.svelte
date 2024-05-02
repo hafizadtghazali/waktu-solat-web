@@ -37,7 +37,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{t(timeToNextPrayer)}</span>
+      <span class="next-waqt-time">{timeToNextPrayer}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
