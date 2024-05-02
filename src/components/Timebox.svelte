@@ -47,7 +47,7 @@
   // Function to update the translated string
   function updateTranslatedTime() {
     if (!isNextPrayer || !timeToNextPrayer) {
-      translatedTimeToNextPrayer = ""; // Reset translatedTimeToNextPrayer if isNextPrayer is false or timeToNextPrayer is undefined
+      translatedTimeToNextPrayer = "";
       return;
     }
     let [prefix, ...rest] = timeToNextPrayer.split(" ");
@@ -56,8 +56,8 @@
     let translatedUnit = translateTimeUnits(unit);
     translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
 
-    // Log translatedTimeToNextPrayer when isNextPrayer is true
     console.log("Translated Time:", translatedTimeToNextPrayer);
+    console.log("Translated Time:", timeToNextPrayer);
   }
 
   // Update the translated string whenever isNextPrayer or timeToNextPrayer changes
