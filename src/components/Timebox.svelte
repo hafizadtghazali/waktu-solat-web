@@ -25,6 +25,7 @@
         return prayer; // Return the original name if not found
     }
   }
+  console.log("timeToNextPrayer:", timeToNextPrayer);
 </script>
 
 <div
