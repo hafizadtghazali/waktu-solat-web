@@ -26,42 +26,6 @@
     }
   }
 
-  function translateTimeUnits(text) {
-    switch (text) {
-      case 'hours':
-        return 'jam';
-      case 'hour':
-        return 'jam';
-      case 'minutes':
-        return 'minit';
-      case 'minute':
-        return 'minit';
-      default:
-        return text;
-    }
-  }
-
-  // Translated version of timeToNextPrayer
-  let translatedTimeToNextPrayer = "";
-
-  // Function to update the translated string
-  function updateTranslatedTime() {
-    if (!isNextPrayer || !timeToNextPrayer) {
-      translatedTimeToNextPrayer = "";
-      return;
-    }
-    let [prefix, ...rest] = timeToNextPrayer.split(" ");
-    prefix = "dalam";
-    let [timeValue, unit] = rest.join(" ").split(" ");
-    let translatedUnit = translateTimeUnits(unit);
-    translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
-  }
-
-  // Update the translated string whenever isNextPrayer or timeToNextPrayer changes
-  $: updateTranslatedTime();
-  console.log("Translated Time:", translatedTimeToNextPrayer);
-  console.log("Time:", timeToNextPrayer);
-
 </script>
 
 <div
