@@ -26,6 +26,9 @@
     }
   }
 
+  import { onMount } from 'svelte';
+  
+  // Example translation function for translating time units
   function translateTimeUnits(text) {
     switch (text) {
       case 'hours':
@@ -41,8 +44,28 @@
     }
   }
 
-  // Import the exported timeToNextPrayer string from another component
-  export let timeToNextPrayer: string;
+  // Exported variable from another component
+  export let timeToNextPrayer;
+
+  // Translated version of timeToNextPrayer
+  let translatedTimeToNextPrayer;
+
+  // Function to update the translated string
+  function updateTranslatedTime() {
+    let [prefix, ...rest] = timeToNextPrayer.split(" ");
+    prefix = "dalam";
+    let [timeValue, unit] = rest.join(" ").split(" ");
+    let translatedUnit = translateTimeUnits(unit);
+    translatedTimeToNextPrayer = `${prefix} ${timeValue} ${translatedUnit}`;
+  }
+
+  // Call the function to initially translate the string
+  onMount(updateTranslatedTime);
+
+  // Update the translated string whenever timeToNextPrayer changes
+  $: {
+    updateTranslatedTime();
+  }
 
 </script>
 
@@ -54,7 +77,7 @@
   <div class="waqt-name">
     {#if isNextPrayer}
       {translatePrayerName(prayerName)}
-      <span class="next-waqt-time">{timeToNextPrayer}</span>
+      <span class="next-waqt-time">{translatedTimeToNextPrayer}</span>
     {:else}
       {translatePrayerName(prayerName)}
     {/if}
